@@ -178,8 +178,9 @@
 }
 
 .MainItm .itm .txt {
-    margin: 0 -100px 0 0;
-    z-index: 999;
+width: 400px;
+overflow: hisdn
+;
 }
 
 .MainItm .itm .txt h3 {
@@ -196,22 +197,34 @@
 }
 
 .MainItm .swiper-slide-active .itm .txt {
-    display: none;
-}
-
-.MainItm .itm figure img {
-    width: 500px;
+    width: 0;
+    overflow: hidden;
 }
 
 .MainItm .itm figure {
     flex: 1 0 500px;
 }
 
+.MainItm .itm figure img {
+    width: 500px;
+    animation: fg 1s 1s both;
+}
+
 .MainItm .swiper-slide-active .itm figure {
-    flex: 1 0 300px;
-    transition: 1s 1s;
+    flex: 1 0 500px;
 }
 .MainItm .swiper-slide-active .itm figure img {
     width: 300px;
-    transition: 1s 1s;
+}
+
+@keyframes fg {
+    0% {
+        width: 500px;
+    }
+    50% {
+        width: 500%;
+    }
+    100% {
+        width: 300%;
+    }
 }
