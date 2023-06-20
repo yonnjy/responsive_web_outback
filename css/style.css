@@ -1,0 +1,217 @@
+.Header {
+    /* fix안쓰고 하는방법 */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #444;
+}
+
+.Header .inner {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header .logo {
+    display: block;
+    width: 118px;
+    height: 44px;
+    background: url(../images/logo_white_type_02.png) no-repeat;
+    transition: 0.5s;
+}
+
+.Header.on .logo {
+    background: url(../images/logo_red_type_02.png) no-repeat;
+}
+
+.Header .Gnb>ul {
+    display: flex;
+    gap: 40px;
+}
+
+.Header .Gnb>ul>li>a {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+}
+
+.Header .login {
+    display: flex;
+    gap: 30px;
+}
+
+.Header .login a {
+    font-size: 15px;
+    color: #fff;
+}
+
+.MainVisual {
+    position: relative;
+}
+
+.MainVisual .main_slide .itm {
+    height: calc(100vh - 100px);
+}
+
+.MainVisual .main_slide .itm01 {
+    background: url(../images/main01.jpg) no-repeat center top/cover;
+}
+
+.MainVisual .main_slide .itm02 {
+    background: url(../images/main02.jpg) no-repeat center top/cover;
+}
+
+.MainVisual .main_slide .itm03 {
+    background: url(../images/main03.jpg) no-repeat center top/cover;
+}
+
+.MainVisual .main_slide .itm04 {
+    background: url(../images/main04.jpg) no-repeat center top/cover;
+}
+
+.MainVisual .main_slide .itm05 {
+    background: url(../images/main05.jpg) no-repeat center top/cover;
+}
+
+.MainVisual .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1440px;
+    padding: 0 15px;
+    width: 100%;
+    z-index: 999;
+}
+
+.MainVisual .arrows li {
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.MainVisual .arrows .left {
+    position: absolute;
+    top: -32px;
+    left: -15px;
+    width: 37px;
+    height: 75px;
+    background: url(../images/btn_main_visual_prev_off.png);
+}
+
+.MainVisual .arrows .right {
+    position: absolute;
+    top: -32px;
+    right: 15px;
+    width: 37px;
+    height: 75px;
+    background: url(../images/btn_main_visual_next_off.png);
+}
+
+.MainVisual .arrows .left:hover {
+    /* left: -10px; */
+    background: url(../images/btn_main_visual_prev_on.png);
+}
+
+.MainVisual .arrows .right:hover {
+    background: url(../images/btn_main_visual_next_on.png);
+}
+
+.MainVisual .dots {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    display: flex;
+    gap: 30px;
+    z-index: 999;
+}
+
+.MainVisual .dots li span {
+    font-size: 0;
+}
+
+.MainVisual .dots li {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.MainVisual .dots li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.MainVisual .dots li:hover::before {
+    width: 30px;
+    height: 30px;
+}
+.MainVisual .dots li.on::before {
+    width: 30px;
+    height: 30px;
+}
+
+.MainVisual .dots li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.MainItm .itm {
+    display: flex;
+}
+
+.MainItm .itm .txt {
+    margin: 0 -100px 0 0;
+    z-index: 999;
+}
+
+.MainItm .itm .txt h3 {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0 0 50px 0;
+}
+
+.MainItm .itm .txt strong {
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+.MainItm .swiper-slide-active .itm .txt {
+    display: none;
+}
+
+.MainItm .itm figure img {
+    width: 500px;
+}
+
+.MainItm .itm figure {
+    flex: 1 0 500px;
+}
+
+.MainItm .swiper-slide-active .itm figure {
+    flex: 1 0 300px;
+    transition: 1s 1s;
+}
+.MainItm .swiper-slide-active .itm figure img {
+    width: 300px;
+    transition: 1s 1s;
+}
