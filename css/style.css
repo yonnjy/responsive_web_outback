@@ -1,17 +1,17 @@
 .Header {
-    /* fix안쓰고 하는방법 */
     position: sticky;
     top: 0;
-    z-index: 999;
     background: #444;
+    z-index: 1000;
 }
 
 .Header .inner {
     display: flex;
-    height: 100px;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
 }
+
 
 .Header .logo {
     display: block;
@@ -51,26 +51,33 @@
 }
 
 .MainVisual .main_slide .itm {
+    position: relative;
+    overflow: hidden;
     height: calc(100vh - 100px);
 }
 
-.MainVisual .main_slide .itm01 {
+.MainVisual .main_slide .itm .slide-img {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.MainVisual .main_slide .itm01 .slide-img {
     background: url(../images/main01.jpg) no-repeat center top/cover;
 }
 
-.MainVisual .main_slide .itm02 {
+.MainVisual .main_slide .itm02 .slide-img {
     background: url(../images/main02.jpg) no-repeat center top/cover;
 }
 
-.MainVisual .main_slide .itm03 {
+.MainVisual .main_slide .itm03 .slide-img {
     background: url(../images/main03.jpg) no-repeat center top/cover;
 }
 
-.MainVisual .main_slide .itm04 {
+.MainVisual .main_slide .itm04 .slide-img {
     background: url(../images/main04.jpg) no-repeat center top/cover;
 }
 
-.MainVisual .main_slide .itm05 {
+.MainVisual .main_slide .itm05 .slide-img {
     background: url(../images/main05.jpg) no-repeat center top/cover;
 }
 
@@ -80,23 +87,27 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 1440px;
-    padding: 0 15px;
     width: 100%;
+    padding: 0 15px;
     z-index: 999;
 }
 
 .MainVisual .arrows li {
-    transition: 0.5s;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .MainVisual .arrows .left {
     position: absolute;
     top: -32px;
-    left: -15px;
+    left: 15px;
     width: 37px;
     height: 75px;
     background: url(../images/btn_main_visual_prev_off.png);
+}
+
+.MainVisual .arrows .left:hover {
+    background: url(../images/btn_main_visual_prev_on.png);
 }
 
 .MainVisual .arrows .right {
@@ -108,11 +119,6 @@
     background: url(../images/btn_main_visual_next_off.png);
 }
 
-.MainVisual .arrows .left:hover {
-    /* left: -10px; */
-    background: url(../images/btn_main_visual_prev_on.png);
-}
-
 .MainVisual .arrows .right:hover {
     background: url(../images/btn_main_visual_next_on.png);
 }
@@ -121,11 +127,11 @@
     position: absolute;
     bottom: 100px;
     left: 50%;
+    z-index: 999;
     transform: translate(-50%, 0);
-    
+
     display: flex;
     gap: 30px;
-    z-index: 999;
 }
 
 .MainVisual .dots li span {
@@ -136,6 +142,34 @@
     position: relative;
     width: 40px;
     height: 40px;
+    cursor: pointer;
+}
+
+.MainVisual .dots li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    transition: 0.8s linear;
+}
+
+.MainVisual .swiper-wrapper {
+    transition-timing-function: width 1s cubic-bezier(1, 0.265, 0, 1.225) 0s;
+}
+
+.MainVisual .dots li:hover::before {
+    width: 30px;
+    height: 30px;
+}
+
+.MainVisual .dots li.on::before {
+    width: 30px;
+    height: 30px;
 }
 
 .MainVisual .dots li::after {
@@ -146,85 +180,349 @@
     transform: translate(-50%, -50%);
     width: 15px;
     height: 15px;
+    background: #fff;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
 }
 
-.MainVisual .dots li:hover::before {
-    width: 30px;
-    height: 30px;
-}
-.MainVisual .dots li.on::before {
-    width: 30px;
-    height: 30px;
+.MainItm {
+    position: relative;
 }
 
-.MainVisual .dots li::before {
-    content: "";
+.MainItm .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0.67, 1.06, 1, 0.66);
+}
+
+.MainItm .inner {}
+
+.MainItm .detail .txt {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    cursor: pointer;
+    top: 100px;
+    left: -400px;
+    opacity: 0;
+    width: 300px;
+    z-index: 999;
 }
 
-.MainItm .itm {
-    display: flex;
-}
-
-.MainItm .itm .txt {
-width: 400px;
-overflow: hisdn
-;
-}
-
-.MainItm .itm .txt h3 {
-    font-size: 50px;
+.MainItm .detail .txt h3 {
+    font-size: 60px;
     font-weight: 700;
     margin: 0 0 50px 0;
 }
 
-.MainItm .itm .txt strong {
-    display: block;
+.MainItm .detail.swiper-slide-next .txt {
+    animation: op 4s .5s both;
+}
+
+.MainItm .detail figure img {
+    width: 100%;
+    transform: scale(0.7);
+    transform-origin: 0 50%;
+}
+
+.MainItm .detail.swiper-slide-next figure img {
+    transform-origin: 100% 50%;
+    transform: scale(1);
+    transition: 0.5s;
+    animation: sc 4s 1s both;
+}
+
+
+@keyframes sc {
+    0% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.7);
+    }
+}
+
+@keyframes op {
+    0% {
+        opacity: 0;
+        transform: translate(0, 100px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 100px);
+    }
+}
+
+.MainItm .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1600px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.MainItm .arrows i {
+    padding: 10px;
+    background: #980101;
+    color: #fff;
     font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.MainBenefit {
+    background: url(../images/main_benefit_obj_01.jpg) no-repeat 100px -100px;
+}
+
+.MainBenefit .benefit_wrap {
+    width: calc((100% - 1440px) / 2 + 1425px);
+    background: #100c0b url(../images/main_benefit_visual.jpg) no-repeat;
+    margin: 0 0 0 auto;
+    min-height: 400px;
+    padding: 100px 0;
+}
+
+.MainBenefit .benefit_wrap .inner {
+    margin: 0;
+}
+
+/* 믿음과 약속으로 h2냅다쓰기 */
+.MainBenefit h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.MainBenefit .title {
+    margin: 0 0 40px 0;
+}
+
+.MainBenefit .title p {
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
     font-weight: 300;
+}
+
+.MainBenefit .list {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.MainBenefit .list li {
+    text-align: center;
+}
+
+.MainBenefit .list img {
+    margin: 0 0 30px 0;
+}
+
+.MainBenefit .list strong {
+    display: block;
+    margin: 0 0 15px 0;
+    font-size: 25;
+    font-weight: 500;
+    color: #fff;
+}
+
+.MainBenefit .list p {
+    font-size: 15px;
+    color: #fff;
+    max-width: 175px;
+    margin: 0 auto;
+}
+
+.MainReword {
+    position: relative;
+}
+
+.MainReword::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100px;
+    width: 100px;
+    height: 150px;
+    transform: rotate(-30deg);
+    background: url(../images/btn_main_visual_next_on.png) no-repeat right top;
+}
+
+.MainReword .inner {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.MainReword .title {
+    position: relative;
+    border: 4px solid #222;
+    min-height: 300px;
+}
+
+.MainReword .title .case {
+    position: absolute;
+    top: -4px;
+    bottom: 50px;
+    left: -4px;
+    right: 50px;
+    background: #fff;
+}
+
+.MainReword h2 {
     margin: 0 0 20px 0;
 }
 
-.MainItm .swiper-slide-active .itm .txt {
-    width: 0;
-    overflow: hidden;
+.MainReword h2 span {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
 }
 
-.MainItm .itm figure {
-    flex: 1 0 500px;
+.MainReword h2 strong {
+    font-size: 60px;
+    font-weight: 700;
 }
 
-.MainItm .itm figure img {
-    width: 500px;
-    animation: fg 1s 1s both;
+.MainReword .title p {
+    margin: 0 0 10px 0;
 }
 
-.MainItm .swiper-slide-active .itm figure {
-    flex: 1 0 500px;
-}
-.MainItm .swiper-slide-active .itm figure img {
-    width: 300px;
+.MainReword .title .btn {
+    display: inline-block;
+    padding: 8px 15px 6px 15px;
+    background: #222;
+    color: #fff;
+    font-size: 15px;
 }
 
-@keyframes fg {
-    0% {
-        width: 500px;
-    }
-    50% {
-        width: 500%;
-    }
-    100% {
-        width: 300%;
-    }
+.MainReword .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+/* mc : #be161e sc : #907354*/
+.MainReword .list li::before {
+    content: attr(data-num);
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #907354;
+
+
+}
+
+.MainOrder {
+    padding: 0 0 1px 0;
+}
+
+.MainOrder .order_wrap {
+    width: calc((100% - 1440px) / 2 + 1425px);
+    background: #907354;
+}
+
+.MainOrder .order_wrap .inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 0 0 auto;
+    padding: 0 0 0 30px;
+}
+
+.MainOrder .order_wrap .icon01 {
+    background: #907354;
+    border-left: 1px solid #a3886b;
+}
+
+.MainOrder .order_wrap .icon02 {
+    background: #333333;
+}
+
+.MainOrder .order_wrap .icon03 {
+    background: #be161e;
+}
+
+.MainOrder .order_wrap .list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px 40px 40px;
+    color: #fff;
+}
+
+.MainOrder .order_wrap .list .txt {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+
+.MainOrder .order_wrap .txt strong {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.MainOrder .order_wrap li .arrow {
+    position: relative;
+    margin: auto 0 0 0;
+    width: 60px;
+    transition: 0.5s;
+}
+
+.MainOrder .order_wrap li:hover .arrow {
+    width: 80px;
+}
+
+.MainOrder .order_wrap li .icon {
+    transition: 0.5s;
+}
+
+.MainOrder .order_wrap li:hover .icon {
+    transform: translate(0, -20px);
+}
+
+.MainOrder .order_wrap .arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+}
+
+.MainOrder .order_wrap .arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 1px;
+    background: #fff;
+    transform: rotate(45deg);
+    transform-origin: right bottom;
+}
+
+.Footer {
+    background: #333333;
+    padding: 50px;
+    color: #f9f9f9;
 }
