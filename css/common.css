@@ -71,3 +71,12 @@ p {
     margin: -1px;
     overflow: hidden;
 }
+
+strong {
+    font-weight: 500;
+}
+
+address,
+em {
+    font-style: normal;
+}
