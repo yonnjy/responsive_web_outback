@@ -4,14 +4,23 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     color: inherit;
     font-size: inherit;
-    box-sizing: border-box;
 }
 
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
 }
 
 ul,
@@ -29,38 +38,28 @@ img {
     vertical-align: middle;
 }
 
+
 body {
     /* font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Noto Serif KR', serif;
-    font-family: 'Roboto', sans-serif; */
+font-family: 'Noto Serif KR', serif;
+font-family: 'Roboto', sans-serif; */
     font-family: 'Roboto', 'Noto Sans KR', sans-serif;
     word-break: keep-all;
     line-height: 1;
     color: #444;
 }
 
-.inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.section {
-    padding: 100px 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: inherit;
-}
-
 p {
-    /* 16px을 쓸때 위아래 3px을 간격줄래 */
     line-height: 1.375;
+}
+
+strong {
+    font-weight: 700;
+}
+
+address,
+em {
+    font-style: normal;
 }
 
 .blind {
@@ -72,11 +71,12 @@ p {
     overflow: hidden;
 }
 
-strong {
-    font-weight: 500;
+.inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-address,
-em {
-    font-style: normal;
+.section {
+    padding: 100px 0;
 }

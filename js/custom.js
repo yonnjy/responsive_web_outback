@@ -42,7 +42,7 @@ $(function () {
 
     $('.MainVisual .dots li').on('click', function () {
         const idx = $(this).index();
-        $(this).addClass('on').siblings().removeClass('on');
+        $(this).addClass('on').siblings().removeClass('on')
         MainSlide.slideTo(idx);
     });
 
@@ -56,12 +56,13 @@ $(function () {
             delay: 4000,
             disableOnInteraction: false,
         },
+
         breakpoints: {
             768: {
                 slidesPerView: 2,
                 spaceBetween: 400,
             }
-        },
+        }
     });
 
     $('.MainItm .arrows .left').on('click', function () {
@@ -86,10 +87,16 @@ $(function () {
         $(this).parent().siblings().find('.snb').stop().slideUp();
     });
 
-    // 모바일에서 서브눌렀다가 pc로 넘어와도 문제없게
-    $(window).on('resize', function(){
-        $('.Gnb .snb').removeAttr('style');
-    });
-    
+    $(window).on('resize', function () {
+        $('.Gnb .snb').removeAttr('style')
+    })
 
-});
+
+
+
+
+
+
+
+
+})

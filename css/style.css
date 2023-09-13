@@ -1,7 +1,7 @@
 .Header {
     position: sticky;
     top: 0;
-    background: #444;
+    background: #222;
     z-index: 1000;
 }
 
@@ -15,7 +15,7 @@
 
 .Header .logo {
     display: block;
-    width: 118px;
+    width: 238px;
     height: 44px;
     background: url(../images/logo_white_type_02.png) no-repeat;
     transition: 0.5s;
@@ -25,8 +25,6 @@
     background: url(../images/logo_red_type_02.png) no-repeat;
 }
 
-.Header .Gnb {}
-
 .Header .Gnb>ul {
     display: flex;
     gap: 40px;
@@ -35,6 +33,7 @@
 .Header .Gnb>ul>li>a {
     display: block;
     font-size: 20px;
+    font-weight: 500;
     color: #fff;
 }
 
@@ -65,13 +64,30 @@
     left: -40px;
     white-space: nowrap;
     background: rgba(0, 0, 0, 0.75);
-    padding: 10px 40px 30px 40px;
+    padding: 20px 40px;
 
     display: none;
 }
 
 .Header .Gnb>ul>li:hover .snb {
     display: block;
+}
+
+.Header .Gnb>ul>li .snb li {
+    position: relative;
+}
+.Header .Gnb>ul>li .snb li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #be161e;
+}
+.Header .Gnb>ul>li .snb li:hover::after {
+    width: 100%;
+    transition: 0.5s;
 }
 
 .Header .Gnb>ul>li .snb a {
@@ -83,17 +99,17 @@
 
 .Header .login {
     display: flex;
-    gap: 30px;
+    gap: 15px;
 }
 
 .Header .login a {
     font-size: 15px;
-    color: #fff;
+    color: #aaa;
 }
 
-.Header .login a {
-    font-size: 15px;
+.Header .login .st a {
     color: #fff;
+    font-weight: 500;
 }
 
 .MainVisual {
@@ -205,12 +221,12 @@
     height: 10px;
     border: 1px solid #fff;
     border-radius: 50%;
-    transition: 0.8s linear;
+    transition: 0.5s linear;
 }
 
-.MainVisual .swiper-wrapper {
-    transition-timing-function: width 1s cubic-bezier(1, 0.265, 0, 1.225) 0s;
-}
+/* .MainVisual .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0, 0.75, 0.01, -0.13);
+} */
 
 .MainVisual .dots li:hover::before {
     width: 30px;
@@ -238,12 +254,6 @@
     position: relative;
 }
 
-.MainItm .swiper-wrapper {
-    transition-timing-function: cubic-bezier(0.67, 1.06, 1, 0.66);
-}
-
-.MainItm .inner {}
-
 .MainItm .detail .txt {
     position: absolute;
     top: 100px;
@@ -251,20 +261,19 @@
     opacity: 0;
     width: 300px;
     z-index: 999;
-
-    /* r */
-    position: static;
-    /* ? */
 }
 
 .MainItm .detail .txt h3 {
     font-size: 60px;
-    font-weight: 700;
-    margin: 0 0 50px 0;
+    font-weight: 900;
+    margin: 0 0 40px 0;
+}
 
-    /* r */
-    font-size: 30px;
-    margin: 0 0 20px 0;
+.MainItm .detail .txt strong {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
 }
 
 .MainItm .detail.swiper-slide-next .txt {
@@ -348,17 +357,16 @@
 
 .MainBenefit .benefit_wrap {
     width: calc((100% - 1440px) / 2 + 1425px);
-    background: #100c0b url(../images/main_benefit_visual.jpg) no-repeat;
+    background: url(../images/main_benefit_visual.jpg) no-repeat left top/cover;
     margin: 0 0 0 auto;
     min-height: 400px;
     padding: 100px 0;
 }
 
 .MainBenefit .benefit_wrap .inner {
-    margin: 0;
+    margin: 0 0 0 0;
 }
 
-/* 믿음과 약속으로 h2냅다쓰기 */
 .MainBenefit h2 {
     text-align: center;
     color: #fff;
@@ -389,22 +397,24 @@
 }
 
 .MainBenefit .list img {
-    margin: 0 0 30px 0;
+    margin: 0 0 40px 0;
 }
 
 .MainBenefit .list strong {
     display: block;
-    margin: 0 0 15px 0;
-    font-size: 25;
+    margin: 0 0 20px 0;
+    font-size: 25px;
     font-weight: 500;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
     color: #fff;
 }
 
 .MainBenefit .list p {
     font-size: 15px;
-    color: #fff;
-    max-width: 175px;
+    color: #f2f2f2;
+    max-width: 200px;
     margin: 0 auto;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
 .MainReword {
@@ -431,7 +441,7 @@
 
 .MainReword .title {
     position: relative;
-    border: 4px solid #222;
+    border: 4px solid #907354;
     min-height: 300px;
 }
 
@@ -449,23 +459,23 @@
 }
 
 .MainReword h2 span {
-    font-size: 40px;
-    font-weight: 500;
+    font-size: 32px;
+    font-weight: 700;
     margin: 0 0 10px 0;
 }
 
 .MainReword h2 strong {
-    font-size: 60px;
-    font-weight: 700;
+    font-size: 64px;
+    font-weight: 900;
 }
 
 .MainReword .title p {
-    margin: 0 0 10px 0;
+    margin: 0 0 24px 0;
 }
 
 .MainReword .title .btn {
     display: inline-block;
-    padding: 8px 15px 6px 15px;
+    padding: 10px 20px 8px;
     background: #222;
     color: #fff;
     font-size: 15px;
@@ -477,7 +487,6 @@
     gap: 50px;
 }
 
-/* mc : #be161e sc : #907354*/
 .MainReword .list li::before {
     content: attr(data-num);
     display: block;
@@ -485,8 +494,6 @@
     font-size: 30px;
     font-weight: 700;
     color: #907354;
-
-
 }
 
 .MainOrder {
@@ -581,7 +588,7 @@
 .Footer {
     background: #333333;
     padding: 50px;
-    color: #f9f9f9;
+    color: #aaa;
 }
 
 .Footer .top {
@@ -597,7 +604,7 @@
 
 .Footer .top .left a {
     display: block;
-    line-height: 24px;
+    line-height: 28px;
     border: 1px solid #666;
     padding: 0 20px;
     font-size: 12px;
@@ -605,12 +612,8 @@
 
 .Footer .top .right {
     display: flex;
-    gap: 30px;
+    gap: 31px;
     line-height: 28px;
-}
-
-.Footer .top .right a {
-    font-size: 15px;
 }
 
 .Footer .top .right li {
@@ -626,6 +629,10 @@
     width: 1px;
     height: 12px;
     background: #666;
+}
+
+.Footer .top .right a {
+    font-size: 15px;
 }
 
 .Footer .bottom {
@@ -649,12 +656,7 @@
     display: inline-block;
     width: 1px;
     height: 10px;
-    transform: rotate(15deg);
     background: #666;
-}
-
-.Footer .author>span {
-    color: #aaa;
 }
 
 .Footer .sns {
@@ -663,26 +665,20 @@
 }
 
 .Footer .sns i {
-    padding: 10px;
+    padding: 8px;
+    background: #666;
+    color: #ddd;
     font-size: 18px;
     border-radius: 50%;
-    color: #ddd;
-    background: #666;
 }
 
 .mobile_btn {
     display: none;
 }
 
+
+
 @media (max-width: 768px) {
-    * {
-        /* outline: 1px solid red; */
-    }
-
-    body {
-        overflow-x: hidden;
-    }
-
     .Header h1 {
         position: fixed;
         z-index: 1000;
@@ -744,15 +740,15 @@
     }
 
     .mobile_btn {
-        position: fixed;
         display: block;
+
+        position: fixed;
         inset: 30px 30px auto auto;
-        ;
+        z-index: 1000;
         width: 30px;
         height: 30px;
         background: #ddd;
         border-radius: 5px;
-        z-index: 1000;
     }
 
     .mobile_btn::before,
@@ -765,13 +761,13 @@
     }
 
     .mobile_btn.on::before {
-        transition: 0.5s 0.5s;
         transform: rotate(45deg);
+        transition: 0.5s 0.2s;
     }
 
     .mobile_btn.on::after {
-        transition: 0.5s 0.5s;
-        transform: rotate(-45deg);
+        transform: rotate(-225deg);
+        transition: 0.5s 0.6s;
     }
 
     .mobile_btn button {
@@ -796,7 +792,10 @@
         inset: auto 5px 7px 5px;
     }
 
-    .mobile_btn.on button::before,
+    .mobile_btn.on button::before {
+        display: none;
+    }
+
     .mobile_btn.on button::after {
         display: none;
     }
@@ -806,34 +805,35 @@
     }
 
     .MainVisual .main_slide .itm01 .slide-img {
-        background: url(../images/main01.jpg) no-repeat 40% top/cover;
+        background: url(../images/main01.jpg) no-repeat center top/cover;
     }
 
     .MainVisual .main_slide .itm02 .slide-img {
-        background: url(../images/main02.jpg) no-repeat 40% top/cover;
+        background: url(../images/main02.jpg) no-repeat center top/cover;
     }
 
     .MainVisual .main_slide .itm03 .slide-img {
-        background: url(../images/main03.jpg) no-repeat 20% top/cover;
+        background: url(../images/main03.jpg) no-repeat 24% top/cover;
     }
 
     .MainVisual .main_slide .itm04 .slide-img {
-        background: url(../images/main04.jpg) no-repeat 22% top/cover;
+        background: url(../images/main04.jpg) no-repeat 26% top/cover;
     }
 
     .MainVisual .main_slide .itm05 .slide-img {
-        background: url(../images/main05.jpg) no-repeat 20% top/cover;
-    }
-
-
-    .MainVisual .arrows .left:hover {
-        background: url(../images/btn_main_visual_prev_on.png);
+        background: url(../images/main05.jpg) no-repeat 25% top/cover;
     }
 
     .MainItm .detail .txt {
         position: static;
         opacity: 1;
         width: auto;
+        margin: 0 0 30px 0;
+    }
+
+    .MainItm .detail .txt h3 {
+        font-size: 30px;
+        margin: 0 0 20px 0;
     }
 
     .MainItm .detail figure img {
@@ -845,25 +845,17 @@
         z-index: 998;
     }
 
-    .MainBenefit {
-        background: url(../images/main_benefit_obj_01.jpg) no-repeat 100px -100px;
-    }
-    
-    .MainBenefit .benefit_wrap {
-        width: calc((100% - 1440px) / 2 + 1425px);
-        background: url(../images/main_benefit_visual.jpg) no-repeat center center/cover;
-        margin: 0 0 0 auto;
-        min-height: 400px;
-        padding: 70px 0;
-    }
-    
     .MainBenefit .benefit_wrap {
         width: auto;
     }
 
     .MainBenefit .list {
-        gap: 40px;
         flex-direction: column;
+        gap: 40px;
+    }
+
+    .MainReword {
+        overflow-x: hidden;
     }
 
     .MainReword::before {
@@ -899,12 +891,12 @@
 
     .Footer .top {
         flex-direction: column;
+        gap: 30px;
     }
 
     .Footer .top .left {
         flex-direction: column;
         gap: 4px;
-        margin: 0 0 30px 0;
     }
 
     .Footer .top .left a {
@@ -923,11 +915,13 @@
 
     .Footer .bottom {
         flex-direction: column;
+        gap: 30px;
     }
 
     .Footer .author ul span {
         display: block;
         padding: 0 0;
+
     }
 
     .Footer .author ul span::before {
